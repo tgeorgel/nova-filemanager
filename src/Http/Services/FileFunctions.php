@@ -26,6 +26,10 @@ trait FileFunctions
      */
     public function formatBytes($size, $level = 0, $precision = 2, $base = 1024)
     {
+        if ($size === 0) {
+            return '0 B';
+        }
+
         $unit = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         $times = floor(log($size, $base));
 
